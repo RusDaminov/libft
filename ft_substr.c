@@ -6,7 +6,7 @@
 /*   By: abernita <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 12:59:20 by abernita          #+#    #+#             */
-/*   Updated: 2021/10/08 12:59:34 by abernita         ###   ########.fr       */
+/*   Updated: 2021/10/09 16:13:17 by abernita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,24 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	char	*pt;
+	char	*substr;
+	char	*new_str;
+	size_t	s_len;
+	size_t	i;
 
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	if (i < (int)start)
-	{
-		if (!(pt = malloc(sizeof(char))))
-			return (0);
-		pt[0] = '\0';
-		return (pt);
-	}
-	if (!(pt = malloc((len + 1) * sizeof(char))))
-		return (0);
-	i = 0;
-	while (i < (int)len && s[start + i])
-	{
-		pt[i] = s[start + i];
-		i++;
-	}
-	pt[i] = '\0';
-	return (pt);
+	s_len = ft_strlen(s);
+	if (s == NULL || s_len < start)
+		return (ft_strdup(""));
+	if (start + len < s_len)
+		substr = (char *)malloc((len + 1) * sizeof(char));
+	else
+		substr = (char *)malloc((s_len - start + 1) * sizeof(char));
+	if (substr == NULL)
+		return (NULL);
+	i = start;
+	new_str = substr;
+	while (i < (start + len) && *(s + i))
+		*new_str++ = *(s + i++);
+	*new_str = '\0';
+	return (substr);
 }

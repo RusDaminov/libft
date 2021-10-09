@@ -6,15 +6,13 @@
 /*   By: abernita <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 19:52:29 by abernita          #+#    #+#             */
-/*   Updated: 2021/10/08 20:00:35 by abernita         ###   ########.fr       */
+/*   Updated: 2021/10/09 15:58:06 by abernita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include <stdio.h>
 
-char
-	*ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
@@ -29,15 +27,3 @@ char
 	}
 	return (NULL);
 }
-//int main()
-//{
-//    const	char str1[]	= "0123456789";
-//    char res;
-//    char res1;
-//
-//    printf("%s\n", str1);
-//    res = ft_strrchr(str1, 3);
-//    printf("%s\n", str1);
-//    res1 = strrchr(str1, 3);
-//    printf("%s\n", str1);
-//}
