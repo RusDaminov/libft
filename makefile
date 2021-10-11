@@ -28,7 +28,8 @@ NAMES = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_isdigit \
 		ft_substr ft_strtrim ft_tolower ft_toupper \
 
 #		ft_lstadd_front ft_lstdelone ft_lstiter \
-#		ft_lstadd_back ft_lstmap ft_lstnew \
+#		ft_lstadd_back ft_lstmap
+		ft_lstnew \
 
 SRC_FILES = $(addsuffix .c, $(NAMES))
 OBJ_FILES = $(addsuffix .o, $(NAMES))
