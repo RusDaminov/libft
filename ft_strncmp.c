@@ -6,7 +6,7 @@
 /*   By: abernita <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 11:32:18 by abernita          #+#    #+#             */
-/*   Updated: 2021/10/09 15:49:09 by abernita         ###   ########.fr       */
+/*   Updated: 2021/10/11 13:07:19 by abernita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		s1++;
 		s2++;
 	}
-	diff = ((byte)*s1 - (byte)*s2);
+	diff = ((t_byte) * s1 - (t_byte) * s2);
 	return (diff);
 }

@@ -21,7 +21,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	while (value == 0 && i < n)
 	{
-		value += (*((byte *)s1 + i) - *((byte *)s2 + i));
+		value += (*((t_byte *)s1 + i) - *((t_byte *)s2 + i));
 		i++;
 	}
 	return (value);

@@ -14,15 +14,10 @@
 
 void	ft_bzero(void *b, size_t n)
 {
-	byte	*str;
-//	size_t			l;
-//
-	str = (byte *)b;
-//	l = 0;
-//	while (l < n)
-//		str[l++] = 0;
-	size_t			l;
+	t_byte	*str;
+	size_t	l;
 
+	str = (t_byte *)b;
 	l = 0;
 	while (l < n)
 		str[l++] = 0;
