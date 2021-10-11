@@ -25,6 +25,6 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		s1++;
 		s2++;
 	}
-	diff = ((unsigned char)*s1 - (unsigned char)*s2);
+	diff = ((byte)*s1 - (byte)*s2);
 	return (diff);
 }

@@ -6,7 +6,7 @@
 /*   By: abernita <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 16:38:37 by abernita          #+#    #+#             */
-/*   Updated: 2021/10/07 16:41:23 by abernita         ###   ########.fr       */
+/*   Updated: 2021/10/10 14:46:59 by abernita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	ft_bzero(void *b, size_t n)
 {
-	unsigned char	*p;
-	size_t			i;
+	byte	*str;
+//	size_t			l;
+//
+	str = (byte *)b;
+//	l = 0;
+//	while (l < n)
+//		str[l++] = 0;
+	size_t			l;
 
-	p = b;
-	i = 0;
-	while (i < n)
-	{
-		p[i] = 0;
-		i++;
-	}
+	l = 0;
+	while (l < n)
+		str[l++] = 0;
 }
