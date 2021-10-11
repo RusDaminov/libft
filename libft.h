@@ -38,6 +38,7 @@ int		ft_isupper(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+int		ft_isspace(char c);
 
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s1);

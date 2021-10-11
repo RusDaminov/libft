@@ -19,7 +19,7 @@ INCLUDES = .
 
 #Source Files
 NAMES = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_isdigit \
-		ft_isprint ft_itoa ft_memchr ft_memcmp  \
+		ft_isprint ft_itoa ft_isspace ft_memchr ft_memcmp  \
 		ft_memcpy ft_memmove ft_memset ft_putchar_fd \
 		ft_putendl_fd ft_putnbr_fd ft_calloc \
 		ft_putstr_fd ft_strchr ft_strdup ft_striteri \
