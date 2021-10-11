@@ -14,15 +14,15 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int		value;
+	int		diff;
 	size_t	i;
 
-	value = 0;
+	diff = 0;
 	i = 0;
-	while (value == 0 && i < n)
+	while (diff == 0 && i < n)
 	{
-		value += (*((t_byte *)s1 + i) - *((t_byte *)s2 + i));
+		diff += (*((t_byte *)s1 + i) - *((t_byte *)s2 + i));
 		i++;
 	}
-	return (value);
+	return (diff);
 }
