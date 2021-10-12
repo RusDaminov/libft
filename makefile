@@ -1,78 +1,47 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: abernita <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/10/08 11:45:18 by abernita          #+#    #+#              #
-#    Updated: 2021/10/08 11:45:29 by abernita         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME	=	libft.a
 
-#Library name
-NAME = libft.a
+SRCS	=	ft_atoi.c		ft_isalpha.c		ft_itoa.c\
+			ft_memcpy.c		ft_putendl_fd.c		ft_strdup.c\
+			ft_strmapi.c	ft_tolower.c		ft_bzero.c\
+			ft_isascii.c	ft_strtrim.c		ft_memmove.c\
+			ft_putnbr_fd.c	ft_strlcat.c		ft_strncmp.c\
+			ft_toupper.c	ft_calloc.c			ft_isdigit.c\
+			ft_memchr.c		ft_memset.c			ft_putstr_fd.c\
+			ft_strlcpy.c	ft_strnstr.c		ft_isalnum.c\
+			ft_isprint.c	ft_memcmp.c			ft_putchar_fd.c\
+			ft_strchr.c		ft_strlen.c			ft_strrchr.c\
+			ft_substr.c		ft_strjoin.c\
+			ft_split.c
 
-#Folders containing *.c and *.h files
-SRC = .
-INCLUDES = .
+SRCS_B	=	ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c\
+			ft_lstlast.c	ft_lstadd_back.c	ft_lstdelone.c\
+			ft_lstclear.c	ft_lstiter.c		ft_lstmap.c
 
-#Source Files
-NAMES = ft_atoi ft_bzero ft_isalnum ft_isalpha ft_isascii ft_isdigit \
-		ft_isprint ft_itoa ft_isspace ft_memchr ft_memcmp  \
-		ft_memcpy ft_memmove ft_memset ft_putchar_fd \
-		ft_putendl_fd ft_putnbr_fd ft_calloc \
-		ft_putstr_fd ft_strchr ft_strdup ft_striteri \
-		ft_strjoin ft_strnstr ft_strrchr \
-		ft_strlcat ft_strlen ft_strmapi ft_strncmp \
-		ft_substr ft_strtrim ft_tolower ft_toupper \
+HEADER	=	libft.h
+OBJ		=	$(patsubst %.c, %.o, $(SRCS))
 
-#		ft_lstadd_front ft_lstdelone ft_lstiter \
-#		ft_lstadd_back ft_lstmap
-		ft_lstnew \
+OBJ_B	=	$(SRCS_B:%.c=%.o)
 
-SRC_FILES = $(addsuffix .c, $(NAMES))
-OBJ_FILES = $(addsuffix .o, $(NAMES))
+CC		=	gcc
+CFLAGS	=	-Wall -Wextra -Werror -I$(HEADER)
 
-#Compiler
-CC = gcc
+.PHONY	:	all clean fclean re bonus
 
-#Flags
-CFLAGS = -g -Wall -Wextra -Werror
-SANIT = -fsanitize=address
+all		:	$(NAME)
 
-#Baseline command that compiles all the files
-.PHONY: all
-all: $(NAME)
+$(NAME)	:	$(OBJ) $(HEADER)
+	ar rcs $(NAME) $?
 
-#Command that compiles the *.c files, creates the library, and index the files
-$(NAME):
-	@$(CC) $(CFLAGS) -I $(INCLUDES) -c $(addprefix $(SRC)/, $(SRC_FILES))
-	@ar -rc $(NAME) $(OBJ_FILES)
-	@ranlib $(NAME)
+%.o		:	%.c $(HEADER)
+	$(CC) $(FLAGS) -c $< -o $@
 
-.PHONY: clean
-clean:
-	@/bin/rm -rf $(OBJ_FILES)
+bonus	:
+	@make OBJ="$(OBJ_B)" all
 
-.PHONY: fclean
-fclean: clean
-	@if test -e $(NAME); then\
-		/bin/rm $(NAME);\
-	fi;
+clean	:
+	@rm -f $(OBJ) $(OBJ_B)
 
-#Command that cleans all the files and remakes the library
-.PHONY: re
-re: fclean all
+fclean	:	clean
+	@$(RM) $(NAME)
 
-#Testing code
-.PHONY: test
-test:
-	@gcc fake.c -g $(SANIT)
-	@./a.out
-
-#Norminette
-.PHONY: Norminette
-norm:
-	@norminette *.c *.h
-
+re		:	fclean all

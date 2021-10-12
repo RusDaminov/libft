@@ -5,17 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abernita <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/08 12:27:54 by abernita          #+#    #+#             */
-/*   Updated: 2021/10/08 12:33:05 by abernita         ###   ########.fr       */
+/*   Created: 2021/10/12 11:49:29 by abernita          #+#    #+#             */
+/*   Updated: 2021/10/12 11:49:38 by abernita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (lst)
-		while (lst->next)
-			lst = lst->next;
-	return (lst);
+	while (lst != NULL)
+	{
+		if (lst->next == NULL)
+			return (lst);
+		lst = lst->next;
+	}
+	return (0);
 }
