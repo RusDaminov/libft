@@ -15,19 +15,19 @@
 static size_t	count_words(char const *s, char c)
 {
 	size_t	word_count;
-	int		skip;
+	int		delim;
 
 	word_count = 0;
-	skip = 1;
+	delim = 1;
 	while (*s)
 	{
-		if (*s != c && skip)
+		if (*s != c && delim)
 		{
-			skip = 0;
+			delim = 0;
 			word_count++;
 		}
 		else if (*s == c)
-			skip = 1;
+			delim = 1;
 		s++;
 	}
 	return (word_count);
@@ -70,24 +70,3 @@ char	**ft_split(char const *s, char c)
 	make_words(words, s, c, num_words);
 	return (words);
 }
-
-//int     main(void)
-//{
-//    char	s1[] = "lorem      ipsum dolor sit amet";
-//    //	char	s2[] = "dolor";
-//    char	**words;
-//    int		i = 0;
-//
-//    printf("================\n");
-//    words = ft_split(s1, 'm');
-//    while (*(words + i) != NULL)
-//    {
-//        printf("%s", *(words + i));
-//        printf("\n");
-//        i++;
-//    }
-//    //	printf("my_ft >> %s \n", ft_strtrim(s1, s2));
-//    printf("================\n");
-//
-//    return (0);
-//}
