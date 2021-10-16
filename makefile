@@ -35,7 +35,7 @@ $(NAME)	:	$(OBJ) $(HEADER)
 	@$(CC) $(FLAGS) -c $< -o $@
 
 bonus	:
-	@make OBJ="$(OBJ_B)" all
+	make OBJ="$(OBJ_B)" all
 
 clean	:
 	@rm -f $(OBJ) $(OBJ_B)
