@@ -6,7 +6,7 @@
 /*   By: abernita <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/09 11:32:18 by abernita          #+#    #+#             */
-/*   Updated: 2021/10/11 13:07:19 by abernita         ###   ########.fr       */
+/*   Updated: 2021/10/16 12:47:22 by abernita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int		diff;
 	size_t	i;
 
-	i = 1;
 	if (n == 0)
 		return (0);
-	while ((s1 && s2) && *s1 == *s2 && i++ < n)
+	i = 0;
+	while (s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i] && i < n - 1)
 	{
-		s1++;
-		s2++;
+		i++;
 	}
-	diff = ((t_byte) * s1 - (t_byte) * s2);
-	return (diff);
+	return ((t_byte)s1[i] - (t_byte)s2[i]);
 }

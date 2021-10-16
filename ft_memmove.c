@@ -16,7 +16,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	t_byte	*d;
 	t_byte	*s;
-	size_t	i;
 
 	if (dst == src)
 		return (dst);
@@ -26,7 +25,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		d = (t_byte *)dst;
 		s = (t_byte *)src;
-		i = 0;
 		while (len > 0)
 		{
 			len--;
