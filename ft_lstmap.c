@@ -12,21 +12,51 @@
 
 #include "libft.h"
 
-t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
-{
-	t_list *new;
-	t_list *start;
+//t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+//{
+//	t_list *n_list;
+//	t_list *dub;
+//	t_list *res;
+//
+//	if (!lst || !f)
+//		return (NULL);
+//	dub = lst;
+//	n_list = NULL;
+//	while (dub)
+//	{
+//		if (f(dub -> content))
+//		{
+//			res = ft_lstnew(f(dub->content));
+//			if (!res)
+//			{
+//				ft_lstclear(&n_list, del);
+//				return (NULL);
+//			}
+//			ft_lstadd_back(&dub, res);
+//		}
+//		dub = dub -> next;
+//	}
+//	return (n_list);
+//}
 
-	start = NULL;
+#include "libft.h"
+
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+{
+	t_list	*elem;
+	t_list	*ptr;
+
+	ptr = NULL;
 	while (lst)
 	{
-		if (!(new = ft_lstnew(f(lst->content))))
+		elem = ft_lstnew((*f)(lst->content));
+		if (!elem)
 		{
-			ft_lstclear(&start, del);
+			ft_lstclear(&ptr, (*del));
 			return (NULL);
 		}
-		ft_lstadd_back(&start, new);
+		ft_lstadd_back(&ptr, elem);
 		lst = lst->next;
 	}
-	return (start);
+	return (ptr);
 }
