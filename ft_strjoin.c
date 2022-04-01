@@ -39,7 +39,7 @@
 // 	return (str);
 // }
 
-char	*ftt_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*res;
 	int		i;
